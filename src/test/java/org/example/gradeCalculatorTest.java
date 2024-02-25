@@ -16,8 +16,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class gradeCalculatorTest {
     // 학점계산기 도메인: 이수한 과목, 학점 계산기
 
+    /**
+     * 핵심 포인트
+     */
     // 이수한 과목을 전달하여 평균학점 계산 요청 -> 학점 계산기
-
 
     @DisplayName("평균 학점을 계산한다.")
     @Test
@@ -25,7 +27,7 @@ public class gradeCalculatorTest {
         List<Course> courses = List.of(new Course("OOP", 3, "A+"),
                 new Course("자료구조", 3, "A+"));
 
-        GradeCalculator gradeCalculator = new GradeCalculator(courses);
+        GradeCalculator gradeCalculator = new GradeCalculator(new Courses(courses));
         double gradeResult = gradeCalculator.calculateGrade();
 
         assertThat(gradeResult).isEqualTo(4.5);
